@@ -9,7 +9,7 @@
             </div>
 
             <div class="progress active m-t-20">
-                <div class="progress-bar bg-info progress-bar-striped" [style.width]="Porcentaje2" style="height:5px;"  role="progressbar"> <span class="sr-only">85% Complete (success)</span> </div>
+                <div class="progress-bar bg-primary progress-bar-striped" [style.width]="Porcentaje2" style="height:5px;"  role="progressbar"> <span class="sr-only">85% Complete (success)</span> </div>
             </div>
         </div>
         </div>
@@ -27,7 +27,7 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-               <app-incrementador (newProgress)="progress2 = $event" [progress]="50"></app-incrementador>
+               <app-incrementador [btnClass]="'btn-primary'" (newProgress)="progress2 = $event" [progress]="50"></app-incrementador>
             </div>
         </div>
     </div>

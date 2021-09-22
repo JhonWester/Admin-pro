@@ -9,15 +9,28 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class IncrementadorComponent implements OnInit {
 
   @Input() progress: number = 40;
+  @Input() btnClass: string = 'btn-info';
   @Output() newProgress: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.btnClass = `btn ${this.btnClass}`;
   }
 
   get GetProgress() {
     return `${this.progress}%`;
+  }
+
+  onChanges(newValue: number) {
+    if (newValue >= 100) {
+      this.progress = 100;
+    } else if (newValue <= 0) {
+      this.progress = 0;
+    } else {
+      this.progress = newValue;
+    }
+    this.newProgress.emit(this.progress);
   }
 
   changeProgress(value: number): number {
